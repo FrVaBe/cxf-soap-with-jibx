@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:tns="http://calculator.sample.frvabe.de/types"
+           targetNamespace="http://calculator.sample.frvabe.de/types" 
+           version="1.0">
+
+  <xs:simpleType name="operator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ADD"></xs:enumeration>
+      <xs:enumeration value="SUBTRACT"></xs:enumeration>
+      <xs:enumeration value="MULTIPLY"></xs:enumeration>
+      <xs:enumeration value="DIVIDE"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="termPart">
+    <xs:sequence>
+      <xs:element name="operator" type="tns:operator" minOccurs="0" maxOccurs="1" />
+      <xs:element name="value" type="xs:double" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="term">
+    <xs:sequence>
+      <xs:element name="part" type="tns:termPart" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="result">
+    <xs:sequence>
+      <xs:element name="value" type="xs:double" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="term" type="tns:term" />
+  <xs:element name="result" type="tns:result" />
+
+</xs:schema>

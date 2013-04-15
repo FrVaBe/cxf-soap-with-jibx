@@ -1,0 +1,49 @@
+<definitions     name="calculatorService"
+                 xmlns="http://schemas.xmlsoap.org/wsdl/" 
+                 xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                 xmlns:types="http://calculator.sample.frvabe.de/types" 
+                 xmlns:tns="http://calculator.sample.frvabe.de/ws"
+                 targetNamespace="http://calculator.sample.frvabe.de/ws">
+
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://calculator.sample.frvabe.de/types"
+                  schemaLocation="calculator.xsd" />
+    </xsd:schema>
+  </types>
+
+  <message name="calculateRequest">
+    <part name="parameters" element="types:term" />
+  </message>
+  <message name="calculateResponse">
+    <part name="parameters" element="types:result" />
+  </message>
+
+  <portType name="calculator">
+    <operation name="calculate">
+      <input message="tns:calculateRequest" />
+      <output message="tns:calculateResponse" />
+    </operation>
+  </portType>
+
+  <binding name="calculatorSoapBinding" type="tns:calculator">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="calculate">
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+
+  <service name="calculatorService">
+    <port binding="tns:calculatorSoapBinding" name="calculatorPort">
+      <soap:address
+        location="http://localhost:8080/calculator/calculatorPort" />
+    </port>
+  </service>
+
+</definitions>

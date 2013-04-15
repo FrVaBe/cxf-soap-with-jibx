@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://cxf.apache.org/jaxws 
+        http://cxf.apache.org/schemas/jaxws.xsd">
+
+  <import resource="classpath:META-INF/cxf/cxf.xml" />
+
+  <bean id="calculator" class="de.frvabe.sample.calculator.ws.CalculatorImpl" />
+
+  <jaxws:endpoint xmlns:tns="http://calculator.sample.frvabe.de/ws"
+                    id="calculatorEndpoint" implementor="#calculator"
+                    wsdlLocation="classpath:wsdl/calculator.wsdl" endpointName="tns:calculatorPort"
+                    serviceName="tns:calculatorService"
+                    address="http://0.0.0.0:8080/calculator">
+    <jaxws:dataBinding>
+      <bean class="org.apache.cxf.jibx.JibxDataBinding" />
+    </jaxws:dataBinding>
+  </jaxws:endpoint>
+
+</beans>
