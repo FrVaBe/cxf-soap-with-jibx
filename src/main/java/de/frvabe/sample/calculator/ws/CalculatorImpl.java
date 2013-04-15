@@ -6,9 +6,6 @@ import de.frvabe.sample.calculator.types.Result;
 import de.frvabe.sample.calculator.types.Term;
 import de.frvabe.sample.calculator.types.TermPart;
 
-/**
- *
- */
 public class CalculatorImpl implements Calculator {
 
   @Override
