@@ -9,7 +9,7 @@ The project is build using maven and the following plugins:
 * [cxf-codegen-plugin](http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html)
 * [jibx-maven-plugin](http://jibx.sourceforge.net/maven-jibx-plugin/index.html)
 
-The cxf-codegen-plugin provides the possibility to choose JiBX as databinding but it does not provide the possibility to define the code generation customization (class-decorator). So the code generation of the xsd types is excluded from the cxf-codegen-plugin section and a `schema-codegen` goal is added in the jibx-maven-plugin section (what would normally not necessary).
+The cxf-codegen-plugin provides the possibility to choose JiBX as databinding but it does not provide the possibility to define the code generation customization (class-decorator). So the code generation of the xsd types is excluded from the cxf-codegen-plugin section and a `schema-codegen` goal is added in the jibx-maven-plugin section (what would normally not be necessary).
 
 If you run the project (`de.frvabe.sample.calculator.Main.class`) the wsdl of the service will be accessible at
 
