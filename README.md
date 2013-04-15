@@ -1,7 +1,7 @@
 cxf-soap-with-jibx
 ==================
 
-This is an [Apache CXF](http://cxf.apache.org/) SOAP service example with [JiBX](http://jibx.sourceforge.net/) databinding. It is quite similar to the [maven-jibx-plugin Webservice example](http://jibx.sourceforge.net/maven-jibx-plugin/webservice.html) but it also uses a class-decorator (`SerializableDecorator`) to [extend](http://jibx.sourceforge.net/fromschema/codegen-extends.html#extend) the generated classes with a `java.io.Serializable` interface.
+This is an [Apache CXF](http://cxf.apache.org/) SOAP service example with [JiBX](http://jibx.sourceforge.net/) databinding. The approach is quite similar to the [maven-jibx-plugin Webservice example](http://jibx.sourceforge.net/maven-jibx-plugin/webservice.html) (except from the OSGi usage) but it also uses a class-decorator (`SerializableDecorator`) to [extend](http://jibx.sourceforge.net/fromschema/codegen-extends.html#extend) the generated classes with a `java.io.Serializable` interface.
 
 The class-decorator usage is defined in the `/src/main/config/custom-jibx-codegen.xml` file.
 
