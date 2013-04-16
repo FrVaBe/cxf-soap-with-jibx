@@ -80,10 +80,10 @@
           <execution>
             <phase>generate-sources</phase>
             <configuration>
-              <sourceRoot>${basedir}/target/generated-sources</sourceRoot>
+              <sourceRoot>${project.build.directory}/generated-sources</sourceRoot>
               <wsdlOptions>
                 <wsdlOption>
-                  <wsdl>${basedir}/src/main/resources/wsdl/calculator.wsdl</wsdl>
+                  <wsdl>${project.basedir}/src/main/resources/wsdl/calculator.wsdl</wsdl>
                   <dataBinding>jibx</dataBinding>
                   <extraargs>
                     <extraarg>-nexclude</extraarg>
@@ -113,12 +113,12 @@
               <goal>schema-codegen</goal>
             </goals>
             <configuration>
-              <schemaLocation>src/main/resources/wsdl</schemaLocation>
+              <schemaLocation>${project.basedir}/src/main/resources/wsdl</schemaLocation>
               <customizations>
-                <customization>src/main/config/custom-jibx-codegen.xml</customization>
+                <customization>${project.basedir}/src/main/config/custom-jibx-codegen.xml</customization>
               </customizations>
               <verbose>true</verbose>
-              <targetDirectory>target/generated-sources</targetDirectory>
+              <targetDirectory>${project.build.directory}/generated-sources</targetDirectory>
             </configuration>
           </execution>
           <!-- run the JiBX binding compiler -->
@@ -128,7 +128,7 @@
               <goal>bind</goal>
             </goals>
             <configuration>
-              <schemaBindingDirectory>target/generated-sources/jibx_bindings</schemaBindingDirectory>
+              <schemaBindingDirectory>${project.build.directory}/generated-sources/jibx_bindings</schemaBindingDirectory>
               <includeSchemaBindings>
                 <includeSchemaBinding>*.xml</includeSchemaBinding>
               </includeSchemaBindings>
