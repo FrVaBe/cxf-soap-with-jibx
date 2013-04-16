@@ -1,6 +1,7 @@
 package de.frvabe.sample.calculator.ws;
 
-import de.frvabe.sample.calculator.service.Calculator;
+import de.frvabe.sample.calculator.ws.Calculator;
+
 import de.frvabe.sample.calculator.types.Operator;
 import de.frvabe.sample.calculator.types.Result;
 import de.frvabe.sample.calculator.types.Term;
